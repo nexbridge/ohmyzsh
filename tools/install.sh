@@ -103,7 +103,7 @@ setup_ohmyzsh() {
 }
 
 setup_zshrc() {
-	echo "${GREEN}Using the Oh My Zsh template file and adding it to ~/.zshrc.${RESET}"
+	echo "Using the Oh My Zsh template file and adding it to ~/.zshrc."
 
 	cp "$ZSH/templates/zshrc.zsh-template" ~/.zshrc
 	sed "/^export ZSH=/ c\\
@@ -209,7 +209,6 @@ main() {
 	setup_zshrc
 	setup_shell
 
-	printf "$GREEN"
 	cat <<-'EOF'
 		         __                                     __
 		  ____  / /_     ____ ___  __  __   ____  _____/ /_
@@ -220,7 +219,6 @@ main() {
 
 
 	EOF
-	printf "$RESET"
 
 	if [ $RUNZSH = no ]; then
 		echo "${YELLOW}Run zsh to try it out.${RESET}"
