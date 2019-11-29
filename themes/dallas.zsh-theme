@@ -3,7 +3,7 @@
 # Grab the current date (%D) and time (%T) wrapped in {}: {%D %T}
 DALLAS_CURRENT_TIME_="%{$fg[white]%}{%{$fg[yellow]%}%D %T%{$fg[white]%}}%{$reset_color%}"
 # Grab the current machine name: muscato
-DALLAS_CURRENT_MACH_="%{$fg[green]%}%m%{$fg[white]%}:%{$reset_color%}"
+DALLAS_CURRENT_MACH_="%{$fg[green]%}$(hostname -f)%{$fg[white]%}:%{$reset_color%}"
 # Grab the current filepath, use shortcuts: ~/Desktop
 # Append the current git branch, if in a git repository: ~aw@master
 DALLAS_CURRENT_LOCA_="%{$fg[cyan]%}%~\$(git_prompt_info)%{$reset_color%}\$(parse_git_dirty)"
