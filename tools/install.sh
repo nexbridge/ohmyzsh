@@ -103,30 +103,6 @@ setup_ohmyzsh() {
 }
 
 setup_zshrc() {
-	# Keep most recent old .zshrc at .zshrc.pre-oh-my-zsh, and older ones
-	# with datestamp of installation that moved them aside, so we never actually
-	# destroy a user's original zshrc
-	echo "${BLUE}Looking for an existing zsh config...${RESET}"
-
-	# Must use this exact name so uninstall.sh can find it
-	OLD_ZSHRC=~/.zshrc.pre-oh-my-zsh
-	if [ -f ~/.zshrc ] || [ -h ~/.zshrc ]; then
-		if [ -e "$OLD_ZSHRC" ]; then
-			OLD_OLD_ZSHRC="${OLD_ZSHRC}-$(date +%Y-%m-%d_%H-%M-%S)"
-			if [ -e "$OLD_OLD_ZSHRC" ]; then
-				error "$OLD_OLD_ZSHRC exists. Can't back up ${OLD_ZSHRC}"
-				error "re-run the installer again in a couple of seconds"
-				exit 1
-			fi
-			mv "$OLD_ZSHRC" "${OLD_OLD_ZSHRC}"
-
-			echo "${YELLOW}Found old ~/.zshrc.pre-oh-my-zsh." \
-				"${GREEN}Backing up to ${OLD_OLD_ZSHRC}${RESET}"
-		fi
-		echo "${YELLOW}Found ~/.zshrc.${RESET} ${GREEN}Backing up to ${OLD_ZSHRC}${RESET}"
-		mv ~/.zshrc "$OLD_ZSHRC"
-	fi
-
 	echo "${GREEN}Using the Oh My Zsh template file and adding it to ~/.zshrc.${RESET}"
 
 	cp "$ZSH/templates/zshrc.zsh-template" ~/.zshrc
@@ -158,17 +134,6 @@ setup_shell() {
 		return
 	fi
 
-	echo "${BLUE}Time to change your default shell to zsh:${RESET}"
-
-	# Prompt for user choice on changing the default login shell
-	printf "${YELLOW}Do you want to change your default shell to zsh? [Y/n]${RESET} "
-	read opt
-	case $opt in
-		y*|Y*|"") echo "Changing the shell..." ;;
-		n*|N*) echo "Shell change skipped."; return ;;
-		*) echo "Invalid choice. Shell change skipped."; return ;;
-	esac
-
 	# Check if we're running on Termux
 	case "$PREFIX" in
 		*com.termux*) termux=true; zsh=zsh ;;
@@ -196,13 +161,6 @@ setup_shell() {
 				return
 			fi
 		fi
-	fi
-
-	# We're going to change the default shell, so back up the current one
-	if [ -n "$SHELL" ]; then
-		echo $SHELL > ~/.shell.pre-oh-my-zsh
-	else
-		grep "^$USER:" /etc/passwd | awk -F: '{print $7}' > ~/.shell.pre-oh-my-zsh
 	fi
 
 	# Actually change the default shell to zsh
@@ -260,8 +218,6 @@ main() {
 		\____/_/ /_/  /_/ /_/ /_/\__, /    /___/____/_/ /_/
 		                        /____/                       ....is now installed!
 
-
-		Please look over the ~/.zshrc file to select plugins, themes, and options.
 
 	EOF
 	printf "$RESET"
