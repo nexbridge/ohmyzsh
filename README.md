@@ -33,13 +33,13 @@ Oh My Zsh is installed by running one of the following commands in your terminal
 #### via curl
 
 ```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/nexbridge/ohmyzsh/master/tools/install.sh)"
 ```
 
 #### via wget
 
 ```shell
-sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(wget -O- https://raw.githubusercontent.com/nexbridge/ohmyzsh/master/tools/install.sh)"
 ```
 
 #### Manual inspection
@@ -49,7 +49,7 @@ that by downloading the install script first, looking through it so everything l
 then running it:
 
 ```shell
-curl -Lo install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+curl -Lo install.sh https://raw.githubusercontent.com/nexbridge/ohmyzsh/master/tools/install.sh
 sh install.sh
 ```
 
@@ -57,7 +57,7 @@ sh install.sh
 
 ### Plugins
 
-Oh My Zsh comes with a shitload of plugins to take advantage of. You can take a look in the [plugins](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins) directory and/or the [wiki](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins) to see what's currently available.
+Oh My Zsh comes with a bucket load of plugins to take advantage of. You can take a look in the [plugins](https://github.com/nexbridge/ohmyzsh/tree/master/plugins) directory and/or the [wiki](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins) to see what's currently available.
 
 #### Enabling Plugins
 
@@ -164,7 +164,7 @@ flag `--unattended` to the `install.sh` script. This will have the effect of not
 the default shell, and also won't run `zsh` when the installation has finished.
 
 ```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/nexbridge/ohmyzsh/master/tools/install.sh)" "" --unattended
 ```
 
 #### Installing from a forked repository
@@ -195,7 +195,7 @@ REPO=apjanke/oh-my-zsh BRANCH=edge sh install.sh
 ##### 1. Clone the repository:
 
 ```shell
-git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
+git clone https://github.com/nexbridge/ohmyzsh.git ~/.oh-my-zsh
 ```
 
 ##### 2. *Optionally*, backup your existing `~/.zshrc` file:
