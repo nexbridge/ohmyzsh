@@ -208,7 +208,7 @@ main() {
 	setup_ohmyzsh
 	setup_zshrc
 	setup_shell
-	
+
 	printf "$GREEN"
 	cat <<-'EOF'
 		         __                                     __
@@ -220,8 +220,9 @@ main() {
 
 
 	EOF
-	printf "$RESET"
-	
+
+	echo "${BLUE}Please look over the ~/.zshrc file to select plugins, themes, and options.${RESET}"
+
 	if [ $RUNZSH = no ]; then
 		echo "${YELLOW}Run zsh to try it out.${RESET}"
 		exit
