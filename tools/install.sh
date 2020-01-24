@@ -229,6 +229,8 @@ main() {
 	fi
 
 	exec zsh -l
+	
+	echo
 }
 
 main "$@"
