@@ -221,7 +221,8 @@ main() {
 
 	EOF
 
-	echo -e "${BLUE}Please look over the ~/.zshrc file to select plugins, themes, and options.\n${RESET}"
+	echo "${BLUE}Please look over the ~/.zshrc file to select plugins, themes, and options.${RESET}"
+	echo
 
 	if [ $RUNZSH = no ]; then
 		echo "${YELLOW}Run zsh to try it out.${RESET}"
